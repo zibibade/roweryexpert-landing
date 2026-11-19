@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>RoweryExpert — karta zgłoszenia (mockup 1440×900)</title>
+<link rel="stylesheet" href="panel.css">
+<style>
+    html, body { margin: 0; }
+    body { width: 1440px; height: 900px; overflow: hidden; }
+    .container { max-width: 1440px; padding: 1.4rem 2rem; filter: blur(2px); opacity: .45; }
+    header { margin-bottom: 1rem; padding-bottom: .9rem; }
+    .logo-mark { width: 46px; height: 46px; border-radius: 10px; background: var(--primary);
+      display: flex; align-items: center; justify-content: center; flex: none; }
+    .logo-mark svg { width: 32px; height: 32px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    .card { padding: 1.2rem; }
+    .modal-overlay { position: absolute; inset: 0; opacity: 1; pointer-events: auto;
+      padding-top: 2.2rem; background: rgba(0, 0, 0, .72); }
+    .modal-card { width: 940px; max-width: 940px; padding: 1.5rem 1.75rem; transform: scale(1); }
+    .modal-header { margin-bottom: .9rem; align-items: flex-start; }
+    .modal-header h2 { font-size: 1.25rem; display: flex; align-items: center; gap: .6rem; }
+    .modal-header h2 svg { width: 22px; height: 22px; flex: none; color: var(--primary-text); }
+    .modal-header .service-no { font-size: .72rem; white-space: nowrap; }
+    .modal-close { font-size: 1.6rem; }
+    .detail-grid { grid-template-columns: 132px 1fr 132px 1fr; gap: .55rem 1rem; margin-bottom: 1rem; }
+    .detail-grid .d-label { font-size: .78rem; }
+    .detail-grid .d-val { font-size: .88rem; font-weight: 600; }
+    .block-title { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+      color: var(--text-secondary); margin: 1rem 0 .5rem; }
+    .service-check-list { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .service-check { justify-content: flex-start; font-size: .86rem; padding: .5rem .75rem; }
+    .service-check.done { border-color: rgba(16, 185, 129, .45); background: rgba(16, 185, 129, .08); }
+    .service-check .cena { margin-left: auto; font-weight: 700; color: var(--text-secondary); font-size: .8rem; }
+    .notes { min-height: 84px; font-size: .9rem; }
+    .modal-actions { display: flex; gap: .75rem; justify-content: flex-end; margin-top: 1.1rem;
+      padding-top: 1rem; border-top: 1px solid var(--border); }
+    .modal-actions .btn { width: auto; padding: .7rem 1.35rem; font-size: .9rem; }
+    .modal-actions .btn svg { width: 17px; height: 17px; }
+    .item-photos { grid-column: auto; margin-top: .1rem; }
+    .photo-thumb { width: 76px; height: 56px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, .07);
+      background: linear-gradient(160deg, #2b2b2b, #1d1d1d);
+      display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .photo-thumb svg { width: 40%; height: 60%; stroke: rgba(255, 255, 255, .28); }
+    .notes-row { display: grid; grid-template-columns: 1fr 230px; gap: 1.25rem; margin-top: .25rem; }
+</style>
+</head>
+<body>
+  <div class="container" aria-hidden="true">
+    <header><div class="logo-section"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div><div class="logo-text"><h1>RoweryExpert</h1><p>Panel Serwisowy</p></div></div></header>
+    <div class="card">
+      <div class="history-header"><h2 class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 17.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span>Historia i statusy</span></h2></div>
+      <div class="services-list" style="grid-template-columns:1fr 1fr;max-height:none;overflow:visible">
+        <article class="service-item-card card-in_progress"><div class="item-info"><h3>Kross Level 2.0</h3></div></article>
+        <article class="service-item-card card-completed"><div class="item-info"><h3>Giant Talon 3</h3></div></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay active">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Karta zgłoszenia <span class="service-no">RO-2026-1041</span></h2>
+        <button class="modal-close" title="Zamknij">&times;</button>
+      </div>
+
+      <div class="detail-grid">
+        <span class="d-label">Rower</span><span class="d-val">Kross Level 2.0</span>
+        <span class="d-label">Numer serwisowy</span><span class="d-val">RO-2026-1041</span>
+        <span class="d-label">Klient</span><span class="d-val">Marek Wiśniewski</span>
+        <span class="d-label">Telefon</span><span class="d-val">600 100 200</span>
+        <span class="d-label">Data przyjęcia</span><span class="d-val">17.11.2026</span>
+        <span class="d-label">Planowany odbiór</span><span class="d-val">20.11.2026</span>
+        <span class="d-label">Przyjął</span><span class="d-val">admin</span>
+        <span class="d-label">Status</span><span class="d-val"><span class="status-badge status-in_progress" style="font-size:.72rem">W serwisie</span></span>
+      </div>
+
+      <div class="block-title">Opis usterki / zakres naprawy</div>
+      <div class="fault-desc" style="grid-column:auto">Hałas przy zmianie biegów, luz w przednim kole. Klient prosi o przegląd przed sezonem.</div>
+
+      <div class="notes-row">
+        <div>
+          <div class="block-title" style="margin-top:.9rem">Czynności</div>
+          <div class="service-check-list">
+            <label class="service-check done"><input type="checkbox" checked> Przegląd <span class="cena">120,00 zł</span></label>
+            <label class="service-check done"><input type="checkbox" checked> Regulacja przerzutek <span class="cena">60,00 zł</span></label>
+            <label class="service-check"><input type="checkbox"> Wymiana kół <span class="cena">180,00 zł</span></label>
+            <label class="service-check"><input type="checkbox"> Centrowanie koła <span class="cena">80,00 zł</span></label>
+          </div>
+        </div>
+        <div>
+          <div class="block-title" style="margin-top:.9rem">Zdjęcia usterki</div>
+          <div class="item-photos"><div class="photo-thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div><div class="photo-thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div><div class="photo-thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div></div>
+        </div>
+      </div>
+
+      <div class="block-title" style="margin-top:.15rem">Notatki</div>
+      <textarea class="notes">Klient prosi o telefon przed odbiorem. Łańcuch do wymiany przy następnej wizycie.</textarea>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 1.252a1.125 1.125 0 0 1-1.107 1.328H7.218a1.125 1.125 0 0 1-1.107-1.328L6.34 18m11.32 0H6.34m0 0h11.32M18 10.5h.008v.008H18V10.5Zm-1.8-6.177a1.95 1.95 0 0 1 2.593 0c.38.347.607.82.607 1.32V9.75H4.5V5.643c0-.5.227-.973.607-1.32a1.95 1.95 0 0 1 2.593 0L8.53 5.4a1.95 1.95 0 0 0 2.593 0l.707-.643a1.95 1.95 0 0 1 2.593 0l.707.643a1.95 1.95 0 0 0 2.593 0l.707-.643Z"/></svg> Wydruk</button>
+        <button class="btn btn-primary">Wydaj rower</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

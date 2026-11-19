@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>RoweryExpert — kalendarz terminów (mockup 1440×900)</title>
+<link rel="stylesheet" href="panel.css">
+<style>
+    html, body { margin: 0; }
+    body { width: 1440px; height: 900px; overflow: hidden; }
+    .container { max-width: 1440px; padding: 1.4rem 2rem 1rem; display: flex; flex-direction: column; height: 900px; }
+    header { margin-bottom: 1rem; padding-bottom: .9rem; }
+    .logo-mark { width: 46px; height: 46px; border-radius: 10px; background: var(--primary);
+      display: flex; align-items: center; justify-content: center; flex: none; }
+    .logo-mark svg { width: 32px; height: 32px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    .btn-icon { width: 36px; height: 36px; }
+    .btn-icon svg { width: 19px; height: 19px; }
+    .header-user { font-size: .85rem; font-weight: 600; color: var(--text-secondary); }
+    .calendar-panel { width: 100%; max-width: none; max-height: none; transform: none;
+      box-shadow: none; padding: 1.1rem 1.25rem 1.25rem; flex: 1 1 auto; }
+    .calendar-header h3 { font-size: 1.3rem; }
+    .calendar-nav { width: 32px; height: 32px; cursor: default; }
+    .calendar-header .hint { font-size: .78rem; color: var(--text-secondary); }
+    .calendar-weekdays span { font-size: .68rem; padding-bottom: 6px; }
+    .cal-cell { min-height: 96px; padding: 5px; gap: 3px; }
+    .cal-daynum { font-size: .78rem; }
+    .cal-chip { font-size: .7rem; padding: 3px 5px; cursor: default; }
+    .cal-chip.chip-overdue { background: rgba(226, 0, 26, .18); color: #ff9a9a;
+      outline: 1px solid rgba(226, 0, 26, .6); border-left: 3px solid var(--danger); }
+    .calendar-legend { margin-top: .8rem; font-size: .78rem; }
+    .calendar-legend i { width: 11px; height: 11px; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-section"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div><div class="logo-text"><h1>RoweryExpert</h1><p>Panel Serwisowy</p></div></div>
+      <div class="header-actions"><button class="btn-icon" title="Kalendarz terminów"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.75 3v2.25M17.25 3v2.25M3 8.25h18M4.5 6.75h15A1.5 1.5 0 0 1 21 8.25v11.25a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5Z"/></svg></button><button class="btn-icon" title="Zmień motyw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg></button><button class="btn-icon" title="Kolor akcentu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".6" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor"/></svg></button><button class="btn-icon" title="Ustawienia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.05-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.66 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.56V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1.05 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9v.09a1.7 1.7 0 0 0 1.56 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span class="header-user">admin</span><button class="btn-icon" title="Wyloguj się"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg></button></div>
+    </header>
+
+    <div class="calendar-panel">
+      <div class="calendar-header">
+        <button class="calendar-nav">&lsaquo;</button>
+        <h3>Listopad 2026</h3>
+        <span class="hint">terminy odbioru</span>
+        <button class="calendar-nav">&rsaquo;</button>
+      </div>
+      <div class="calendar-weekdays"><span>Pn</span><span>Wt</span><span>Śr</span><span>Cz</span><span>Pt</span><span>So</span><span>Nd</span></div>
+      <div class="calendar-grid"><div class="cal-cell other-month"><span class="cal-daynum">26</span></div><div class="cal-cell other-month"><span class="cal-daynum">27</span></div><div class="cal-cell other-month"><span class="cal-daynum">28</span></div><div class="cal-cell other-month"><span class="cal-daynum">29</span></div><div class="cal-cell other-month"><span class="cal-daynum">30</span></div><div class="cal-cell other-month"><span class="cal-daynum">31</span></div><div class="cal-cell"><span class="cal-daynum">1</span></div><div class="cal-cell"><span class="cal-daynum">2</span></div><div class="cal-cell"><span class="cal-daynum">3</span></div><div class="cal-cell"><span class="cal-daynum">4</span></div><div class="cal-cell"><span class="cal-daynum">5</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">6</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">7</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">8</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">9</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">10</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">11</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">12</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span><span class="cal-chip chip-done">1036 Romet</span></div><div class="cal-cell"><span class="cal-daynum">13</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span></div><div class="cal-cell"><span class="cal-daynum">14</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span></div><div class="cal-cell"><span class="cal-daynum">15</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span></div><div class="cal-cell"><span class="cal-daynum">16</span><span class="cal-chip chip-ready">1042 Giant</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span></div><div class="cal-cell"><span class="cal-daynum">17</span><span class="cal-chip chip-progress">1041 Kross</span><span class="cal-chip chip-ready">1042 Giant</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span></div><div class="cal-cell"><span class="cal-daynum">18</span><span class="cal-chip chip-progress">1041 Kross</span><span class="cal-chip chip-ready">1042 Giant</span><span class="cal-chip chip-progress chip-overdue">1039 Trek</span></div><div class="cal-cell today"><span class="cal-daynum">19</span><span class="cal-chip chip-progress">1041 Kross</span><span class="cal-chip chip-ready">1042 Giant</span></div><div class="cal-cell"><span class="cal-daynum">20</span><span class="cal-chip chip-progress">1041 Kross</span></div><div class="cal-cell"><span class="cal-daynum">21</span></div><div class="cal-cell"><span class="cal-daynum">22</span></div><div class="cal-cell"><span class="cal-daynum">23</span></div><div class="cal-cell"><span class="cal-daynum">24</span></div><div class="cal-cell"><span class="cal-daynum">25</span></div><div class="cal-cell"><span class="cal-daynum">26</span></div><div class="cal-cell"><span class="cal-daynum">27</span></div><div class="cal-cell"><span class="cal-daynum">28</span></div><div class="cal-cell"><span class="cal-daynum">29</span></div><div class="cal-cell"><span class="cal-daynum">30</span></div><div class="cal-cell other-month"><span class="cal-daynum">1</span></div><div class="cal-cell other-month"><span class="cal-daynum">2</span></div><div class="cal-cell other-month"><span class="cal-daynum">3</span></div><div class="cal-cell other-month"><span class="cal-daynum">4</span></div><div class="cal-cell other-month"><span class="cal-daynum">5</span></div><div class="cal-cell other-month"><span class="cal-daynum">6</span></div></div>
+      <div class="calendar-legend">
+        <span><i style="background:var(--primary)"></i>W serwisie</span>
+        <span><i style="background:rgba(34,197,94,.35)"></i>Gotowe do odbioru</span>
+        <span><i style="outline:1px solid var(--danger);background:transparent"></i>Po terminie</span>
+        <span><i style="background:var(--text-secondary)"></i>Odebrane</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

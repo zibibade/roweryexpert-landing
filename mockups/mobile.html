@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>RoweryExpert — widok telefonu (mockup 390×844)</title>
+<link rel="stylesheet" href="panel.css">
+<style>
+    html, body { margin: 0; }
+    body { width: 390px; height: 844px; overflow: hidden; }
+    .container { padding: .55rem .6rem 0; }
+    header { flex-direction: row; align-items: center; margin-bottom: .55rem;
+      padding-bottom: .5rem; gap: .4rem; }
+    .logo-section { gap: .5rem; }
+    .logo-mark { width: 34px; height: 34px; border-radius: 8px; background: var(--primary);
+      display: flex; align-items: center; justify-content: center; flex: none; }
+    .logo-mark svg { width: 24px; height: 24px; }
+    .logo-text h1 { font-size: 1.05rem; }
+    .logo-text p { font-size: .62rem; }
+    .header-actions { gap: .28rem; margin-left: auto; width: auto; justify-content: flex-end; }
+    .btn-icon { width: 29px; height: 29px; }
+    .btn-icon svg { width: 16px; height: 16px; }
+    .header-actions .btn-icon:nth-child(1) { display: none; }
+    .header-user { display: none; }
+    .card { padding: .7rem; border-radius: 10px; }
+    .card-title { font-size: .92rem; margin-bottom: .55rem; padding-bottom: .4rem; gap: .4rem; }
+    .card-title svg { width: 17px; height: 17px; color: var(--primary-text); flex: none; }
+    .dash-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; margin-top: .45rem; }
+    .dash-tile { padding: .4rem .5rem; }
+    .dash-tile strong { font-size: 1rem; }
+    .dash-tile span { font-size: .58rem; line-height: 1.15; }
+    .filters { margin-top: .5rem; gap: .3rem; flex-wrap: nowrap; overflow: hidden; }
+    .filter-btn { padding: .3rem .55rem; font-size: .7rem; white-space: nowrap; }
+    .filter-btn .filter-count { margin-left: .18rem; }
+    .services-list { max-height: none; overflow: visible; padding: 0; gap: .5rem; margin-top: .55rem; }
+    .service-item-card { padding: .55rem .6rem; gap: .35rem; border-radius: 8px; }
+    .item-header { flex-direction: row; align-items: flex-start; gap: .35rem; }
+    .item-info h3 { font-size: .88rem; margin-bottom: .15rem; }
+    .service-no { font-size: .58rem; padding: .04rem .35rem; margin-left: .2rem; }
+    .phone-link { font-size: .72rem; }
+    .status-badge { font-size: .6rem; padding: .2rem .45rem; flex: none; }
+    .item-details { grid-template-columns: 1fr 1fr; padding: .35rem 0; gap: .25rem .5rem; font-size: .7rem; }
+    .detail-row { flex-direction: row; gap: .3rem; align-items: baseline; }
+    .detail-label { font-size: .62rem; }
+    .fault-desc { grid-column: span 2; font-size: .68rem; padding: .3rem .4rem; }
+    .item-photos { display: none; }
+    .status-badge { font-size: 10px; padding: 3px 8px; border-radius: 99px; font-weight: 700;
+      border: 1px solid transparent; }
+    .status-in_progress { background: #FFDD00; color: #141414; border-color: #e2c400; }
+    .form-group { margin-bottom: .45rem; }
+    .form-row { gap: .45rem; }
+    label { font-size: .72rem; margin-bottom: .3rem; }
+    input, textarea { padding: .5rem .6rem; }
+    .intake-hint { display: none; }
+    .service-check-list { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
+    .service-check { padding: .25rem .5rem; font-size: .68rem; }
+    .service-check input { width: 14px; height: 14px; }
+    .button-group { margin-top: .55rem; }
+    .btn { padding: .55rem .7rem; font-size: .82rem; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-section"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div><div class="logo-text"><h1>RoweryExpert</h1><p>Panel Serwisowy</p></div></div>
+      <div class="header-actions">
+        <button class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.75 3v2.25M17.25 3v2.25M3 8.25h18M4.5 6.75h15A1.5 1.5 0 0 1 21 8.25v11.25a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5Z"/></svg></button>
+        <button class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.05-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.66 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.56V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1.05 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9v.09a1.7 1.7 0 0 0 1.56 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+        <button class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg></button>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="dash-grid">
+        <button class="dash-tile"><strong>2</strong><span>W serwisie</span></button>
+        <button class="dash-tile tile-ready"><strong>1</strong><span>Gotowe do odbioru</span></button>
+        <button class="dash-tile tile-overdue"><strong>1</strong><span>Po terminie</span></button>
+        <button class="dash-tile tile-today"><strong>1</strong><span>Odbiory dziś</span></button>
+        <button class="dash-tile tile-tomorrow"><strong>1</strong><span>Odbiory jutro</span></button>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active">Wszystkie <span class="filter-count count-neutral">4</span></button>
+        <button class="filter-btn">Dziś do wydania</button>
+        <button class="filter-btn">Jutro</button>
+      </div>
+
+      <div class="services-list">
+        <article class="service-item-card card-in_progress">
+          <div class="item-header">
+            <div class="item-info">
+              <h3>Kross Level 2.0 <span class="service-no">RO-2026-1041</span></h3>
+              <span class="phone-link">Marek Wiśniewski &middot; tel. 600 100 200</span>
+            </div>
+            <span class="status-badge status-in_progress">W serwisie</span>
+          </div>
+          <div class="item-details">
+            <div class="detail-row"><span class="detail-label">Przyjęto</span><span class="detail-val">17.11.2026</span></div>
+            <div class="detail-row"><span class="detail-label">Termin odbioru</span><span class="detail-val">20.11.2026</span></div>
+            <div class="fault-desc">Hałas przy zmianie biegów, luz w przednim kole.</div>
+            <div class="item-photos"><div class="photo-thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div><div class="photo-thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M13 33 20 18h9l6 15M20 18h13M22 18l-3-6h-4"/></svg></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:.7rem">
+      <h2 class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg><span>Przyjmij nowy rower</span></h2>
+      <p class="intake-hint">Dane klienta, sprzęt, zakres prac i termin</p>
+      <form>
+        <div class="form-group">
+          <label>Nazwa roweru</label>
+          <input type="text" value="Kross Level 2.0">
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Data przyjęcia</label><input type="text" value="19.11.2026"></div>
+          <div class="form-group"><label>Planowany odbiór</label><input type="text" value="24.11.2026"></div>
+        </div>
+        <div class="form-group">
+          <label>Telefon klienta</label>
+          <input type="text" value="600 100 200">
+        </div>
+        <div class="form-group">
+          <label>Opis usterki / zakres naprawy</label>
+          <textarea style="min-height:44px;height:44px">Przegląd po sezonie, wymiana klocków hamulcowych.</textarea>
+          <div class="service-check-list">
+            <label class="service-check"><input type="checkbox" checked> Przegląd</label>
+            <label class="service-check"><input type="checkbox"> Wymiana kół</label>
+            <label class="service-check"><input type="checkbox"> Regulacja przerzutek</label>
+            <label class="service-check"><input type="checkbox"> Centrowanie koła</label>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary">Zapisz zgłoszenie</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
